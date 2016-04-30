@@ -31,44 +31,42 @@ if has('vim_starting')
 	set runtimepath+=~/.vim/bundle/neobundle.vim
 	call neobundle#begin(expand('~/.vim/bundle/'))
         NeoBundleFetch 'Shougo/neobundle.vim'
+        "Colorscheme----
+        " solarized
+        NeoBundle 'altercation/vim-colors-solarized'
+        " mustang 
+        NeoBundle 'croaker/mustang-vim'
+        " wombat 
+        NeoBundle 'jeffreyiacono/vim-colors-wombat'
+        " jellybeans 
+        NeoBundle 'nanotech/jellybeans.vim'
+        " lucius 
+        NeoBundle 'vim-scripts/Lucius'
+        " zenburn 
+        NeoBundle 'vim-scripts/Zenburn'
+        " mrkn256 
+        NeoBundle 'mrkn/mrkn256.vim'
+        " railscasts 
+        NeoBundle 'jpo/vim-railscasts-theme'
+        " pyte 
+        NeoBundle 'therubymug/vim-pyte'
+        " molokai 
+        NeoBundle 'tomasr/molokai'
+        "insert here your Neobundle plugins"
+        NeoBundle 'scrooloose/nerdtree'
+        NeoBundle 'Shougo/unite.vim'
+        NeoBundle 'ujihisa/unite-colorscheme'
+        NeoBundle 'Shougo/neosnippet.vim'
+        NeoBundle 'mattn/emmet-vim'
+        NeoBundle 'hail2u/vim-css3-syntax'
+        NeoBundle 'taichouchou2/html5.vim'
+        NeoBundle 'taichouchou2/vim-javascript'
+        NeoBundle 'kchmck/vim-coffee-script'
+        NeoBundle 'open-browser.vim'
         call neobundle#end()
 endif
 
-"Colorscheme----
-" solarized
-NeoBundle 'altercation/vim-colors-solarized'
-" mustang 
-NeoBundle 'croaker/mustang-vim'
-" wombat 
-NeoBundle 'jeffreyiacono/vim-colors-wombat'
-" jellybeans 
-NeoBundle 'nanotech/jellybeans.vim'
-" lucius 
-NeoBundle 'vim-scripts/Lucius'
-" zenburn 
-NeoBundle 'vim-scripts/Zenburn'
-" mrkn256 
-NeoBundle 'mrkn/mrkn256.vim'
-" railscasts 
-NeoBundle 'jpo/vim-railscasts-theme'
-" pyte 
-NeoBundle 'therubymug/vim-pyte'
-" molokai 
-NeoBundle 'tomasr/molokai'
 colorscheme railscasts
-
-"insert here your Neobundle plugins"
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'taichouchou2/html5.vim'
-NeoBundle 'taichouchou2/vim-javascript'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'open-browser.vim'
-
 filetype plugin indent on
 
 "KeyBind----
@@ -76,6 +74,10 @@ let mapleader=','
 let g:user_emmet_leader_key='<C-t>'
 
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+"HTML,JS相互文字列変換
+vmap <silent> ;h :s?^\(\s*\)+ '\([^']\+\)',*\s*$?\1\2?g<CR>
+vmap <silent> ;q :s?^\(\s*\)\(.*\)\s*$? \1 + '\2'?<CR>
 
 "ブラウジング----
 nmap <Leader>o <Plug>(openbrowser-open)
